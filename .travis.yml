@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t ashutiwarydoc/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true ashutiwarydoc/docker-react npm run tests
